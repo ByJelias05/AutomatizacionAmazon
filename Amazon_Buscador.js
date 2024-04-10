@@ -12,7 +12,7 @@ async function runTest() {
 
         await driver.wait(until.elementLocated(By.id('twotabsearchtextbox')), 10000);
 
-        await driver.findElement(By.id('twotabsearchtextbox')).sendKeys('House', Key.RETURN);
+        await driver.findElement(By.id('twotabsearchtextbox')).sendKeys('chancletas', Key.RETURN);
 
         await driver.wait(until.elementLocated(By.id('search')), 20000);
 

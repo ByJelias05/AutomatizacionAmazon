@@ -1,7 +1,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const fs = require('fs');
 
-async function changeLanguage() {
+async function runTest() {
     let driver = await new Builder().forBrowser('chrome').build();
     let resultadosPruebas = [];
 
@@ -42,5 +42,5 @@ function generateHTMLReport(results) {
     fs.writeFileSync(`ReporteIdioma/reporte_id_${Math.random() * 256}.html`, html);
 }
 
-changeLanguage();
+runTest();
 

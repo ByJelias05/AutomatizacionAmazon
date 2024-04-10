@@ -11,7 +11,7 @@ async function runTest() {
       
         await driver.findElement(By.id('nav-cart')).click();
    
-        await driver.wait(until.elementLocated(By.id('sc-active-cart')), 10000);
+        await driver.wait(until.elementLocated(By.id('nav-cart')), 10000);
 
         await driver.takeScreenshot().then(
             function(image, err) {
