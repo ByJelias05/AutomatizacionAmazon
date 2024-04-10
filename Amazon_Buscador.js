@@ -53,4 +53,4 @@ function generateHTMLReport(results) {
     fs.writeFileSync(`ReporteBusqueda/reporte_id_${Math.random() * 256}.html`, html);
 }
 
-runTest();
+runTest();  
