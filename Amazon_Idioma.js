@@ -12,7 +12,7 @@ async function changeLanguage() {
 
         await driver.takeScreenshot().then(
             function(image, err) {
-                fs.writeFile('CaptureIdioma/amazon_spanish.png', image, 'base64', function(err) {
+                fs.writeFile(`CaptureIdioma/amazon_idioma_id_${Math.random() * 256}.png`, image, 'base64', function(err) {
                     if(err) console.log(err);
                 });
             }
@@ -39,7 +39,7 @@ function generateHTMLReport(results) {
 
     html += '</table></body></html>';
 
-    fs.writeFileSync('ReporteIdioma/reporte.html', html);
+    fs.writeFileSync(`ReporteIdioma/reporte_id_${Math.random() * 256}.html`, html);
 }
 
 changeLanguage();

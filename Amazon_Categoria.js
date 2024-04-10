@@ -18,16 +18,16 @@ async function changeLanguage() {
        
         await driver.takeScreenshot().then(
             function(image, err) {
-                fs.writeFile('CaptureCategoria/amazon_spanish.png', image, 'base64', function(err) {
+                fs.writeFile(`CaptureCategoria/amazon_categoria_id_${Math.random() * 256}.png`, image, 'base64', function(err) {
                     if(err) console.log(err);
                 });
             }
         );
 
-        resultadosPruebas.push({ testName: 'Cambio de Idioma en Amazon', status: 'Exitoso' });
+        resultadosPruebas.push({ testName: 'Cambio de categoria en Amazon', status: 'Exitoso' });
     } catch (error) {
         console.error('Error en la prueba:', error);
-        resultadosPruebas.push({ testName: 'Cambio de Idioma en Amazon', status: 'Fallido' });
+        resultadosPruebas.push({ testName: 'Cambio de categoria en Amazon', status: 'Fallido' });
     } finally {
         
         await driver.quit();
@@ -46,7 +46,7 @@ function generateHTMLReport(results) {
 
     html += '</table></body></html>';
 
-    fs.writeFileSync('ReporteCategoria/reporte.html', html);
+    fs.writeFileSync(`ReporteCategoria/reporte_id_${Math.random() * 256}.html`, html);
 }
 
 changeLanguage();

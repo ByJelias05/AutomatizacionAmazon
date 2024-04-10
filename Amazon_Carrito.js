@@ -8,26 +8,23 @@ async function runTest() {
     try {
      
         await driver.get('https://www.amazon.com/');
-
       
         await driver.findElement(By.id('nav-cart')).click();
-
    
         await driver.wait(until.elementLocated(By.id('sc-active-cart')), 10000);
 
-      
         await driver.takeScreenshot().then(
             function(image, err) {
-                fs.writeFile('CaptureCarrito/amazon_cart.png', image, 'base64', function(err) {
+                fs.writeFile(`CaptureCarrito/amazon_carrito_id_${Math.random() * 256}.png`, image, 'base64', function(err) {
                     if(err) console.log(err);
                 });
             }
         );
 
-        resultadosPruebas.push({ testName: 'Ver Cesta en Amazon', status: 'Exitoso' });
+        resultadosPruebas.push({ testName: 'Ver Carrito en Amazon', status: 'Exitoso' });
     } catch (error) {
         console.error('Error en la prueba:', error);
-        resultadosPruebas.push({ testName: 'Ver Cesta en Amazon', status: 'Fallido' });
+        resultadosPruebas.push({ testName: 'Ver Carrito en Amazon', status: 'Fallido' });
     } finally {
        
         await driver.quit();
@@ -46,7 +43,7 @@ function generateHTMLReport(results) {
 
     html += '</table></body></html>';
 
-    fs.writeFileSync('ReporteCarrito/reporte.html', html);
+    fs.writeFileSync(`ReporteCarrito/reporte_id_${Math.random() * 256}.html`, html);
 }
 
 runTest();
