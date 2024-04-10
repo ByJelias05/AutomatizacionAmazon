@@ -6,14 +6,14 @@ async function changeLanguage() {
     let resultadosPruebas = [];
 
     try {
-  
+   
         await driver.get('https://www.amazon.com/');
 
    
-        await driver.wait(until.elementLocated(By.id('nav-global-location-slot')), 10000);
+        await driver.wait(until.elementLocated(By.id('nav-search-dropdown-card')), 10000);
 
-       
-        await driver.findElement(By.id('nav-global-location-slot')).click();
+     
+        await driver.findElement(By.id('nav-search-dropdown-card')).click();
 
        
         await driver.takeScreenshot().then(
@@ -29,7 +29,7 @@ async function changeLanguage() {
         console.error('Error en la prueba:', error);
         resultadosPruebas.push({ testName: 'Cambio de Idioma en Amazon', status: 'Fallido' });
     } finally {
-     
+        
         await driver.quit();
         generateHTMLReport(resultadosPruebas);
     }
@@ -46,7 +46,7 @@ function generateHTMLReport(results) {
 
     html += '</table></body></html>';
 
-    fs.writeFileSync('ReporteEnvio/reporte.html', html);
+    fs.writeFileSync('ReporteCategoria/reporte.html', html);
 }
 
 changeLanguage();
