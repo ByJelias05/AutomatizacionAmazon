@@ -18,7 +18,7 @@ async function changeLanguage() {
        
         await driver.takeScreenshot().then(
             function(image, err) {
-                fs.writeFile('CaptureEnvios/amazon_spanish.png', image, 'base64', function(err) {
+                fs.writeFile('CaptureCategoria/amazon_spanish.png', image, 'base64', function(err) {
                     if(err) console.log(err);
                 });
             }
