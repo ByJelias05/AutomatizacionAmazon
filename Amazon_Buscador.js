@@ -34,7 +34,7 @@ async function runTest() {
         generateHTMLReport(resultadosPruebas);
     }
 }
-
+ 
 
 function generateHTMLReport(results) {
 
